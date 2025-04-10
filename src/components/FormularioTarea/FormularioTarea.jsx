@@ -1,108 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useForm from '../../hooks/useForm'; 
 
-export const FormularioTarea = ({ onAddTask, onEditTask, onDeleteTask, taskToEdit = null }) => {
-    const [task, setTask] = useState({
-        titulo: '',
-        descripcion: '',
-        completada: false
-    });
-    
-    const [errors, setErrors] = useState({});
-    const [isEditing, setIsEditing] = useState(false);
-
-    // Actualizar el estado cuando se recibe una tarea para editar
-    React.useEffect(() => {
-        if (taskToEdit) {
-            setTask(taskToEdit);
-            setIsEditing(true);
-        }
-    }, [taskToEdit]);
-
-    const validateForm = () => {
-        const newErrors = {};
-        if (!task.titulo.trim()) {
-            newErrors.titulo = 'El título es obligatorio';
-        }
-        if (!task.descripcion.trim()) {
-            newErrors.descripcion = 'La descripción es obligatoria';
-        }
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setTask({
-            ...task,
-            [name]: type === 'checkbox' ? checked : value
-        });
-        
-        // Limpiar error cuando el usuario comienza a escribir
-        if (errors[name]) {
-            setErrors({
-                ...errors,
-                [name]: ''
-            });
-        }
-    };
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        if (!validateForm()) {
-            return;
-        }
-        
-        if (isEditing) {
-            onEditTask(task);
-        } else {
-            onAddTask(task);
-        }
-        
-        resetForm();
-    };
-
-    const resetForm = () => {
-        setTask({
-            titulo: '',
-            descripcion: '',
-            completada: false
-        });
-        setErrors({});
-        setIsEditing(false);
-    };
-
-    const handleClear = () => {
-        resetForm();
-    };   
-
-    const handleCancel = () => {
-        resetForm();
-    };
-
-    const handleEdit = () => {
-        if (!task.titulo || !task.descripcion) {
-            setErrors({
-                titulo: !task.titulo ? 'El título es obligatorio' : '',
-                descripcion: !task.descripcion ? 'La descripción es obligatoria' : ''
-            });
-            return;
-        }
-        
-        onEditTask(task);
-        resetForm();
-    };
-
-    const handleDelete = () => {
-        if (window.confirm('¿Estás seguro de que deseas eliminar esta tarea?')) {
-            onDeleteTask(task.id);
-            resetForm();
-        }
-    };
-
+export const FormularioTarea = ({ onAddTask, onEditTask, taskToEdit = null, isHiddenForms }) => {
+    const { task, errors, isEditing, setIsHiddenForms, handleChange, handleSubmit, handleClear, handleCancel } = useForm(taskToEdit, onAddTask, onEditTask);
+   
     return (
-        <form onSubmit={handleSubmit} className="formulario-tarea">
-            <div className="form-group">
+        <form onSubmit={handleSubmit} className={`${isHiddenForms ? 'hidden' : ''} formulario-tarea mb-9 flex  flex-col gap-2 bg-gray-400 p-4 rounded-lg max-w-md`}>
+            <h2 className='text-2xl font-bold text-left text-gray-900'>Agrega una tarea</h2>
+            <div className="form-group bg-gray-300 self-start w-full text-left text-black border-1 border-gray-700 rounded-md p-2">
                 <input 
                     type="text" 
                     name="titulo" 
@@ -114,7 +19,7 @@ export const FormularioTarea = ({ onAddTask, onEditTask, onDeleteTask, taskToEdi
                 {errors.titulo && <span className="error-message">{errors.titulo}</span>}
             </div>
             
-            <div className="form-group">
+            <div className="form-group bg-gray-300 self-start w-full text-left text-black border-1 border-gray-700 rounded-md p-2">
                 <input 
                     type="text" 
                     name="descripcion" 
@@ -126,10 +31,10 @@ export const FormularioTarea = ({ onAddTask, onEditTask, onDeleteTask, taskToEdi
                 {errors.descripcion && <span className="error-message">{errors.descripcion}</span>}
             </div>
             
-            <div className="button-group">
-                <button type='submit'>{isEditing ? 'Guardar' : 'Agregar'}</button>
-                <button type='button' onClick={handleClear}>Limpiar</button>
-                <button type='button' onClick={handleCancel}>Cancelar</button>
+            <div className="button-group flex gap-2 self-end">
+                <button type='button' onClick={handleClear} className="border-1 border-gray-700 text-black px-2 py-1 rounded-md">Limpiar</button>
+                <button type='submit' className="bg-green-600 text-white px-2 py-1 rounded-md">{isEditing ? 'Guardar' : 'Agregar'}</button>
+                <button type='button' onClick={handleCancel} className="bg-red-500 text-white px-2 py-1 rounded-md">Cancelar</button>
             </div>
         </form>
     );      
