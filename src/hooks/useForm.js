@@ -85,7 +85,7 @@ const useForm = (taskToEdit, onAddTask, onEditTask, setIsHiddenForms) => {
 
   //CANCEL FORM
   const handleCancel = () => {
-    setIsHiddenForms((prevState) => !prevState);
+    setIsHiddenForms(true);
     resetForm();
   };
 

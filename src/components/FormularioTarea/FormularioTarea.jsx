@@ -1,8 +1,8 @@
 import React from 'react';
 import useForm from '../../hooks/useForm'; 
 
-export const FormularioTarea = ({ onAddTask, onEditTask, taskToEdit = null, isHiddenForms }) => {
-    const { task, errors, isEditing, setIsHiddenForms, handleChange, handleSubmit, handleClear, handleCancel } = useForm(taskToEdit, onAddTask, onEditTask);
+export const FormularioTarea = ({ onAddTask, onEditTask, taskToEdit = null, isHiddenForms, setIsHiddenForms }) => {
+    const { task, errors, isEditing, handleChange, handleSubmit, handleClear, handleCancel  } = useForm(taskToEdit, onAddTask, onEditTask, setIsHiddenForms);
    
     return (
         <form onSubmit={handleSubmit} className={`${isHiddenForms ? 'hidden' : ''} formulario-tarea mb-9 flex  flex-col gap-2 bg-gray-400 p-4 rounded-lg max-w-md`}>
