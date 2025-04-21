@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 export const Tarea = ({ task, handleDelete, handleEdit, className }) => {
 
   return (
-    <div className={`${className} flex flex-col justify-between gap-2 min-w-[280px] max-h-[180px] rounded-lg p-4 text-left text-black bg-[#F2F2F2] border-2 border-[#C0BBD7]`}>
+    <div className={`${className} flex flex-col justify-between gap-2 min-w-[280px] max-h-[250px] rounded-lg p-4 text-left text-black bg-[#F2F2F2] border-2 border-[#C0BBD7]`}>
       <div className="task-content-top">
         <h2 className="text-lg font-bold font_bitter text-[#2F1D7B]">{task.titulo}</h2>
         <p className="text-sm text-[#C0BBD7] font_cal">{task.descripcion}</p>

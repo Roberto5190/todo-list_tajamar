@@ -25,10 +25,10 @@ export default function App() {
   
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <h1 className="mb-[-32px] text-8xl font-bold text-[#191919] font_bitter">To Do List</h1>
+      <h1 className="md:mb-[-32px] mb-4 mb:text-8xl text-6xl font-bold text-[#191919] font_bitter ">To Do List</h1>
 
       {/* TASKS TITLE */}
-      <div className="flex justify-between items-start max-w-[1024px] w-full mb-[-14px]">
+      <div className="flex justify-between items-start max-w-[1024px] w-full mb-[-14px] px-8">
         <h3 className="font_bitter text-2xl font-bold text-[#2F1D7B] bg-[#fde4b7] px-6 py-4 rounded-2xl ">{'Tareas: ' + taskLength}</h3>
         <button
         onClick={() => handleHiddenForm()}

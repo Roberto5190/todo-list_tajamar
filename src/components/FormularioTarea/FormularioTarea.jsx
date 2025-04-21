@@ -88,13 +88,13 @@ export const FormularioTarea = ({
           <button
             type="button"
             onClick={handleClear}
-            className="border-1 border-gray-700 text-white px-4 py-1 rounded-md cursor-pointer"
+            className="underline text-purple-200 px-4 py-1 rounded-md cursor-pointer"
           >
             Limpiar
           </button>
           <button
             type="submit"
-            className="bg-purple-700 border-2 border-purple-300 text-white px-4 py-1 rounded-md cursor-pointer"
+            className="bg-purple-700 border-2 border-purple-400 text-white px-4 py-1 rounded-md cursor-pointer"
           >
             {isEditing ? "Guardar" : "Agregar"}
           </button>
