@@ -17,7 +17,8 @@ export const ListaTareas = ({ tasks, handleDelete, handleEdit }) => {
           opacity: 0,
           y: 20,
           duration: 1,
-          delay: i * 0.3
+          delay: (i * 0.3) + .7,
+          ease: 'power2.out'
         });
       });
     },
