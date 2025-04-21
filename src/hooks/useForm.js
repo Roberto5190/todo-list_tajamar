@@ -63,7 +63,8 @@ const useForm = (taskToEdit, onAddTask, onEditTask, setIsHiddenForms) => {
     } else {
       onAddTask(task);
     }
-
+    
+    setIsHiddenForms(true)
     resetForm();
   };
 
@@ -93,6 +94,7 @@ const useForm = (taskToEdit, onAddTask, onEditTask, setIsHiddenForms) => {
     task,
     errors,
     isEditing,
+    setIsEditing,
     setIsHiddenForms,
     handleChange,
     handleSubmit,

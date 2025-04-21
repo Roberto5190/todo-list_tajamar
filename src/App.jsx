@@ -1,81 +1,43 @@
-import { useEffect, useState } from "react";
-import "./App.css";
 import { ListaTareas } from "./components/ListaTareas/ListaTareas";
 import { FormularioTarea } from "./components/FormularioTarea/FormularioTarea";
-// import db from "./db/db.json";
+import useTask from "./hooks/useTask";
+import { Icon } from "@iconify/react/dist/iconify.js";
+
 
 export default function App() {
-  const initialTasks = () => {
-    const localStorageTasks = localStorage.getItem("tasks");
-    return localStorageTasks ? JSON.parse(localStorageTasks) : []; //si hay elementos en el carrito loss converitmos a string si no lo dejamos vacio
-  };
-
-  const [tasks, setTasks] = useState(initialTasks);
-  const [taskToEdit, setTaskToEdit] = useState(null);
-  const [isHiddenForms, setIsHiddenForms] = useState(true);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const handleDelete = (id) => {
-    const nuevasTareas = tasks.filter((task) => task.id !== id); // Filtramos la tarea por ID
-    setTasks(nuevasTareas); // Actualizamos el estado con las nuevas tareas
-  };
-
-  const handleEdit = (id) => {
-    const tareaEditada = tasks.find((task) => task.id === id);
-    setTaskToEdit(tareaEditada);
-  };
-
-  const handleAddTask = (newTask) => {
-    const createTaskId = {
-      ...newTask,
-      id: Date.now()
-    }
-    setTasks([...tasks, createTaskId]);
-  };
-
-  const handleEditTask = (updatedTask) => {
-    setTasks(tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
-  };
-
-  const handleDeleteTask = (id) => {
-    if (window.confirm("¿Estás seguro de que deseas eliminar esta tarea?")) {
-      const restoTareas = tasks.filter((task) => task.id !== id)
-      setTasks(restoTareas);
-    }
-  };
-
-  const handleHiddenForm = () => {
-    setIsHiddenForms(!isHiddenForms);
-  };
-
+  const { 
+    isEditing,
+    tasks,
+    taskToEdit,
+    isHiddenForms,
+    setIsHiddenForms,
+    handleDelete,
+    handleEdit,
+    handleAddTask,
+    handleEditTask,
+    handleDeleteTask,
+    handleHiddenForm
+  } = useTask()
+  
+  const taskLength = tasks.length
+  console.log(taskLength);
+  
+  
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <h1 className="mb-10 text-4xl font-bold text-purple-500 ">To Do List</h1>
-      <button
+      <h1 className="mb-[-32px] text-8xl font-bold text-[#191919] font_bitter">To Do List</h1>
+
+      {/* TASKS TITLE */}
+      <div className="flex justify-between items-start max-w-[1024px] w-full mb-[-14px]">
+        <h3 className="font_bitter text-2xl font-bold text-[#2F1D7B] bg-[#fde4b7] px-6 py-4 rounded-2xl ">{'Tareas: ' + taskLength}</h3>
+        <button
         onClick={() => handleHiddenForm()}
-        className={`bg-purple-500 text-white rounded-lg ${ !isHiddenForms ? 'hidden' : ''}`}
+        className={`bg-[#FAA60F] text-[#2F1D7B] p-0.5 border-2 drop-shadow-xl border-amber-300 rounded-lg ${ !isHiddenForms ? 'hidden' : ''} cursor-pointer`}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={36}
-          height={36}
-          viewBox="0 0 24 24"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-          >
-            <path d="M12 8.5v7M8.5 12h7"></path>
-            <rect width={16.5} height={16.5} x={3.75} y={3.75} rx={4}></rect>
-          </g>
-        </svg>
+        <Icon icon="proicons:add" width={32} height={32} />
       </button>
+      </div>
+      
 
 
       <FormularioTarea
@@ -85,6 +47,7 @@ export default function App() {
         onEditTask={handleEditTask}
         onDeleteTask={handleDeleteTask}
         taskToEdit={taskToEdit}
+        isEditing={isEditing}
       />
       <ListaTareas
         tasks={tasks}

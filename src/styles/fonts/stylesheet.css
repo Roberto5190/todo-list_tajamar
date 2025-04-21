@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-MediumItalic.woff2') format('woff2'),
+        url('BitterPro-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Light.woff2') format('woff2'),
+        url('BitterPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-ExtraBold.woff2') format('woff2'),
+        url('BitterPro-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-ExtraLight.woff2') format('woff2'),
+        url('BitterPro-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Black.woff2') format('woff2'),
+        url('BitterPro-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-ExtraLightItalic.woff2') format('woff2'),
+        url('BitterPro-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Medium.woff2') format('woff2'),
+        url('BitterPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-BoldItalic.woff2') format('woff2'),
+        url('BitterPro-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-ExtraBoldItalic.woff2') format('woff2'),
+        url('BitterPro-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Italic.woff2') format('woff2'),
+        url('BitterPro-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-LightItalic.woff2') format('woff2'),
+        url('BitterPro-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-BlackItalic.woff2') format('woff2'),
+        url('BitterPro-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Bold.woff2') format('woff2'),
+        url('BitterPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Regular.woff2') format('woff2'),
+        url('BitterPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-ThinItalic.woff2') format('woff2'),
+        url('BitterPro-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-SemiBoldItalic.woff2') format('woff2'),
+        url('BitterPro-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-Thin.woff2') format('woff2'),
+        url('BitterPro-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter Pro';
+    src: url('BitterPro-SemiBold.woff2') format('woff2'),
+        url('BitterPro-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
